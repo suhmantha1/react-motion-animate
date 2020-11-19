@@ -9,7 +9,7 @@ const App = () => {
       <div className='block blue'>
         <div className='inner'>
           <MotionAnimate animation='fadeInUp'>FADE UP</MotionAnimate>
-          <MotionAnimate animation='fadeInUp' distance={100}>
+          <MotionAnimate animation='fadeInUp' distance={200} delay={0.4}>
             <>FADE UP FAR</>
           </MotionAnimate>
         </div>
@@ -27,6 +27,9 @@ const App = () => {
         <div className='inner'>
           <MotionAnimate animation='fadeInDown'>
             <>FADE DOWN</>
+          </MotionAnimate>
+          <MotionAnimate animation='fadeInDown' delay={0.4} distance={200}>
+            <>FADE DOWN FAR</>
           </MotionAnimate>
         </div>
       </div>
