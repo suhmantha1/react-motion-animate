@@ -1,10 +1,30 @@
 import React from 'react'
 
-import { ExampleComponent } from 'react-motion-scroll'
+import { MotionAnimate } from 'react-motion-scroll'
 import 'react-motion-scroll/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <>
+      <div className='block blue'>
+        <div className='inner'>
+          <MotionAnimate animation='fadeInUp'>FADE UP</MotionAnimate>
+        </div>
+      </div>
+
+      <div className='block pink'>
+        <div className='inner'>
+          <MotionAnimate>FADE IN</MotionAnimate>
+        </div>
+      </div>
+
+      <div className='block green'>
+        <div className='inner'>
+          <MotionAnimate animation='fadeInDown'>FADE DOWN</MotionAnimate>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default App

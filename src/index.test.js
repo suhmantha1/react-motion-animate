@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import { MotionAnimate } from '.'
 
-describe('ExampleComponent', () => {
+describe('MotionAnimate', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(MotionAnimate).toBeTruthy()
   })
 })
