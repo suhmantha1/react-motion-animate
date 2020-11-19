@@ -9,7 +9,8 @@ export const IntersectionContext = React.createContext({ inView: true })
 export const IntersectionObserver = ({
   children,
   reset = false, // if value set to true - observed element will reappear every time it shows up on the screen
-  onInView // Function for use in <MotionDrizzle /> because context can't be directly accessed
+  onInView, // Function for use in <MotionDrizzle /> because context can't be directly accessed
+  threshold = 0 // TODO
 }) => {
   const [inView, setInView] = useState(false)
   const [ref, entry] = useIntersect({
@@ -38,7 +39,8 @@ export const IntersectionObserver = ({
 }
 
 IntersectionObserver.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
   reset: PropTypes.bool,
-  onInView: PropTypes.func
+  onInView: PropTypes.func,
+  threshold: PropTypes.number
 }

@@ -30,3 +30,8 @@ body {
   margin: auto;
   text-align: center;
 }
+
+.threshold {
+  border: 2px solid #000000;
+  padding: 25vh 0;
+}

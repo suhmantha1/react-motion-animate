@@ -9,7 +9,10 @@ export const MotionAnimate = ({
   animation = 'fade',
   speed = transition.duration,
   delay = transition.delay,
-  reset = true
+  distance = transition.distance, // TODO
+  ease = transition.ease,
+  reset = true,
+  threshold = 0
 }) => {
   const [inView, setInView] = useState(false)
 
@@ -17,6 +20,7 @@ export const MotionAnimate = ({
     <IntersectionObserver
       onInView={(status) => setInView(status)}
       reset={reset}
+      threshold={threshold}
     >
       <motion.div
         initial='hidden'
@@ -26,7 +30,8 @@ export const MotionAnimate = ({
         transition={{
           ...transition,
           duration: speed,
-          delay: delay
+          delay: delay,
+          ease: ease
         }}
       >
         {children}
@@ -40,5 +45,11 @@ MotionAnimate.propTypes = {
   animation: PropTypes.oneOf(['fade', 'fadeInUp', 'fadeInDown']),
   speed: PropTypes.number,
   delay: PropTypes.number,
-  reset: PropTypes.bool
+  distance: PropTypes.number,
+  ease: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.number)
+  ]),
+  reset: PropTypes.bool,
+  threshold: PropTypes.number
 }

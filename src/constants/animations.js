@@ -1,6 +1,7 @@
 export const transition = {
   duration: 0.3,
   delay: 0.2,
+  distance: 40,
   ease: 'easeInOut'
 }
 
@@ -16,7 +17,7 @@ const fade = {
 const fadeInUp = {
   hidden: {
     opacity: 0,
-    y: 40
+    y: transition.distance
   },
   show: {
     opacity: 1,
@@ -27,7 +28,7 @@ const fadeInUp = {
 const fadeInDown = {
   hidden: {
     opacity: 0,
-    y: -40
+    y: -transition.distance
   },
   show: {
     opacity: 1,

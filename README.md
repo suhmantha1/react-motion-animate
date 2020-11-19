@@ -36,7 +36,9 @@ class Example extends Component {
 - `animation`: `fade` (default) or `fadeInUp` or `fadeInDown`
 - `speed`: transition duration. Default: `0.3`
 - `delay`: transition delay. Default: `0.2`
+- `ease`: transition ease. Default `easeInOut`. See [framer docs](https://www.framer.com/api/animation/#tween.ease) for ease options
 - `reset`: reset the transition after the component exits from view. Default: `true`
+- `threshold`: amount of component that is visible in the viewport before the transition fires. Default: `0`. Accepts values from 0 to 1.0 (with 1.0 meaning 100% of component is visible)
 
 ## License
 
