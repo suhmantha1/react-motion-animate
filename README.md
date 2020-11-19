@@ -1,22 +1,22 @@
-# react-motion-scroll
+# react-motion-animate
 
 > Animate react components as they scroll in and out of view
 
-[![NPM](https://img.shields.io/npm/v/react-motion-scroll.svg)](https://www.npmjs.com/package/react-motion-scroll) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-motion-animate.svg)](https://www.npmjs.com/package/react-motion-animate) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-![figure](https://raw.githubusercontent.com/suhmantha1/react-motion-scroll/master/example.gif 'React motion scroll library example')
+![figure](https://raw.githubusercontent.com/suhmantha1/react-motion-animate/master/example.gif 'React motion scroll library example')
 
 ## Install
 
 ```bash
-npm install --save react-motion-scroll
+npm install --save react-motion-animate
 ```
 
 ## Usage
 
 ```jsx
 import React, { Component } from 'react'
-import { MotionAnimate } from 'react-motion-scroll'
+import { MotionAnimate } from 'react-motion-animate'
 
 class Example extends Component {
   render() {

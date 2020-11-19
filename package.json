@@ -1,10 +1,10 @@
 {
-  "name": "react-motion-scroll",
+  "name": "react-motion-animate",
   "version": "1.0.0",
   "description": "Animate react components as they scroll in and out of view",
   "author": "suhmantha1",
   "license": "MIT",
-  "repository": "suhmantha1/react-motion-scroll",
+  "repository": "suhmantha1/react-motion-animate",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",

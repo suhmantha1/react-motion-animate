@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { MotionAnimate } from 'react-motion-scroll'
-import 'react-motion-scroll/dist/index.css'
+import { MotionAnimate } from 'react-motion-animate'
+import 'react-motion-animate/dist/index.css'
 
 const App = () => {
   return (
