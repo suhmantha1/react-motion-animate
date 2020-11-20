@@ -6,6 +6,10 @@
 
 ![figure](https://raw.githubusercontent.com/suhmantha1/react-motion-animate/master/example.gif 'React motion scroll library example')
 
+## demo
+
+[See some animations in action](https://suhmantha1.github.io/react-motion-animate/)
+
 ## Install
 
 ```bash
