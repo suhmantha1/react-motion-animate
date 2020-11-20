@@ -28,7 +28,7 @@ const fadeInUp = {
 const fadeInDown = {
   hidden: {
     opacity: 0,
-    y: -transition.distance
+    y: -`${transition.distance}`
   },
   show: {
     opacity: 1,
