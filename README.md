@@ -29,7 +29,7 @@ class Example extends Component {
 }
 ```
 
-## Attributes
+## Props
 
 #### `<MotionAnimate>`
 
@@ -60,5 +60,5 @@ const fadeInUp = {
 MIT © [Use All Five](https://github.com/useallfive)
 
 Developers:
-[Ryan Gordan](https://github.com/supryan)
+[Ryan Gordon](https://github.com/supryan)
 [Samantha Combs](https://github.com/suhmantha1)
