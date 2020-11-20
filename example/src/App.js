@@ -47,8 +47,11 @@ const App = () => {
 
       <div className='block pink'>
         <div className='inner'>
+          <MotionAnimate threshold={0.5}>
+            <div className='threshold'>CUSTOM THRESHOLD 50%</div>
+          </MotionAnimate>
           <MotionAnimate threshold={1.0}>
-            <div className='threshold'>CUSTOM THRESHOLD</div>
+            <div className='threshold'>CUSTOM THRESHOLD 100%</div>
           </MotionAnimate>
         </div>
       </div>

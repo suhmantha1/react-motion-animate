@@ -12,7 +12,7 @@ export const MotionAnimate = ({
   delay = transition.delay,
   distance,
   ease = transition.ease,
-  reset = true,
+  reset = false,
   threshold = 0
 }) => {
   const [inView, setInView] = useState(false)
