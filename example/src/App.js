@@ -55,6 +55,23 @@ const App = () => {
           </MotionAnimate>
         </div>
       </div>
+
+      <div className='block green'>
+        <div className='inner'>
+          <MotionAnimate
+            variant={{
+              hidden: { opacity: 0.2, rotate: -180 },
+              show: {
+                opacity: 0.8,
+                rotate: 180,
+                transition: { repeat: Infinity, duration: 2 }
+              }
+            }}
+          >
+            <>CUSTOM VARIANT</>
+          </MotionAnimate>
+        </div>
+      </div>
     </>
   )
 }

@@ -8,6 +8,7 @@ import { getAnimation } from './utils/animation'
 export const MotionAnimate = ({
   children,
   animation = 'fade',
+  variant,
   speed = transition.duration,
   delay = transition.delay,
   distance,
@@ -17,7 +18,7 @@ export const MotionAnimate = ({
 }) => {
   const [inView, setInView] = useState(false)
 
-  const animationVariants = getAnimation({ animation, distance })
+  const animationVariants = getAnimation({ animation, variant, distance })
 
   return (
     <IntersectionObserver
@@ -46,6 +47,10 @@ export const MotionAnimate = ({
 MotionAnimate.propTypes = {
   children: PropTypes.node,
   animation: PropTypes.oneOf(['fade', 'fadeInUp', 'fadeInDown']),
+  variant: PropTypes.shape({
+    hidden: PropTypes.object,
+    show: PropTypes.object
+  }),
   speed: PropTypes.number,
   delay: PropTypes.number,
   distance: PropTypes.number,

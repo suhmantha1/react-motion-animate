@@ -34,6 +34,21 @@ class Example extends Component {
 #### `<MotionAnimate>`
 
 - `animation`: `fade` (default) or `fadeInUp` or `fadeInDown`
+- `variant`: custom animation definition (see built-in `animation` options above). See [framer docs](https://www.framer.com/api/motion/types/) for variant options. See example for `fadeInDown` variant:
+
+```jsx
+const fadeInUp = {
+  hidden: {
+    opacity: 0,
+    y: 40
+  },
+  show: {
+    opacity: 1,
+    y: 0
+  }
+}
+```
+
 - `speed`: transition duration. Default: `0.3`
 - `delay`: transition delay. Default: `0.2`
 - `ease`: transition ease. Default `easeInOut`. See [framer docs](https://www.framer.com/api/animation/#tween.ease) for ease options
