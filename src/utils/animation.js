@@ -1,7 +1,8 @@
 import variants from '../constants/animations'
 
 export const getAnimation = ({ animation, variant, distance }) => {
-  const animationVariant = variant || variants[animation]
+  const _variants = { ...variants }
+  const animationVariant = variant || _variants[animation]
 
   if (!animationVariant || !animationVariant.hidden) return animationVariant
 

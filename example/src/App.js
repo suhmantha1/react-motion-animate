@@ -9,6 +9,7 @@ const App = () => {
         <nav>
           <a
             target='_blank'
+            rel='noopener noreferrer'
             href='https://github.com/suhmantha1/react-motion-animate/blob/master/README.md'
           >
             Docs
@@ -26,15 +27,50 @@ const App = () => {
       <MotionAnimate animation='fadeInUp' delay={1}>
         <main>
           <div className='inner'>
+            <div className='intro-arrow'>
+              <svg x='0px' y='0px' viewBox='0 0 512 512'>
+                <path
+                  d='M374.108,373.328c-7.829-7.792-20.492-7.762-28.284,0.067L276,443.557V20c0-11.046-8.954-20-20-20
+			c-11.046,0-20,8.954-20,20v423.558l-69.824-70.164c-7.792-7.829-20.455-7.859-28.284-0.067c-7.83,7.793-7.859,20.456-0.068,28.285
+			l104,104.504c0.006,0.007,0.013,0.012,0.019,0.018c7.792,7.809,20.496,7.834,28.314,0.001c0.006-0.007,0.013-0.012,0.019-0.018
+			l104-104.504C381.966,393.785,381.939,381.121,374.108,373.328z'
+                />
+              </svg>
+            </div>
+
             <div className='block'>
-              <MotionAnimate threshold={1} reset={true}>
-                <>Just a simple fade</>
+              <MotionAnimate reset={true}>
+                <div>
+                  <div>Just a simple fade</div>
+                </div>
+
+                <pre>
+                  <code>
+                    {`
+                      <MotionAnimate reset={true}>
+                        <>Just a simple fade</>
+                      </MotionAnimate>
+                    `}
+                  </code>
+                </pre>
               </MotionAnimate>
             </div>
 
             <div className='block'>
               <MotionAnimate animation='fadeInUp' reset={true}>
-                <>Animate up a little....</>
+                <div>
+                  <div>Animate up a little....</div>
+
+                  <pre>
+                    <code>
+                      {`
+                      <MotionAnimate animation='fadeInUp' reset={true}>
+                        <>Animate up a little....</>
+                      </MotionAnimate>
+                    `}
+                    </code>
+                  </pre>
+                </div>
               </MotionAnimate>
               <MotionAnimate
                 animation='fadeInUp'
@@ -44,24 +80,22 @@ const App = () => {
                 speed={1}
               >
                 <div className='right mt'>Or animate up a lot</div>
-              </MotionAnimate>
-            </div>
 
-            <div className='block'>
-              <div className='inner'>
-                <MotionAnimate animation='fadeInDown' reset={true}>
-                  <>Animate down</>
-                </MotionAnimate>
-                <MotionAnimate
-                  animation='fadeInDown'
-                  delay={0.4}
-                  speed={1}
-                  distance={200}
-                  reset={true}
-                >
-                  <div className='right mt'>Or animate really far down</div>
-                </MotionAnimate>
-              </div>
+                <pre>
+                  <code>
+                    {`
+                      <MotionAnimate
+                        animation='fadeInUp'
+                        reset={true}
+                        distance={200}
+                        delay={1}
+                        speed={1}>
+                        <>Or animate up a lot</>
+                      </MotionAnimate>
+                    `}
+                  </code>
+                </pre>
+              </MotionAnimate>
             </div>
 
             <div className='block'>
@@ -72,7 +106,23 @@ const App = () => {
                   ease={[0.75, 0.45, 0.53, 0.94]}
                   reset={true}
                 >
-                  <>add in some custom easing</>
+                  <div>
+                    <div>add in some custom easing</div>
+
+                    <pre>
+                      <code>
+                        {`
+                        <MotionAnimate
+                          delay={0.4}
+                          speed={2}
+                          ease={[0.75, 0.45, 0.53, 0.94]}
+                          reset={true}>
+                          <>Animate up a little....</>
+                        </MotionAnimate>
+                      `}
+                      </code>
+                    </pre>
+                  </div>
                 </MotionAnimate>
               </div>
             </div>
@@ -96,6 +146,32 @@ const App = () => {
                 >
                   <>or do your own weird thing</>
                 </MotionAnimate>
+                <MotionAnimate>
+                  <div style={{ textAlign: 'left' }}>
+                    <pre>
+                      <code>
+                        {`
+                        <MotionAnimate
+                          variant={{
+                            hidden: { opacity: 0.2, rotate: -180 },
+                            show: {
+                              opacity: 0.8,
+                              rotate: 0,
+                              transition: {
+                                repeat: Infinity,
+                                duration: 4,
+                                repeatDelay: 1,
+                                type: 'spring'
+                              }
+                            }
+                          }}>
+                          <>or do your own weird thing</>
+                        </MotionAnimate>
+                      `}
+                      </code>
+                    </pre>
+                  </div>
+                </MotionAnimate>
               </div>
             </div>
           </div>
@@ -103,7 +179,18 @@ const App = () => {
           <div className='scroll-block' style={{ background: '#57716F' }}>
             <div className='inner'>
               <MotionAnimate animation='scrollOpacity'>
-                <>Fade in and out on scroll</>
+                <div>
+                  <div>Fade in and out on scroll</div>
+                  <pre>
+                    <code>
+                      {`
+                      <MotionAnimate animation='scrollOpacity'>
+                        <div>Fade in and out on scroll</div>
+                      </MotionAnimate>
+                      `}
+                    </code>
+                  </pre>
+                </div>
               </MotionAnimate>
 
               <div style={{ paddingTop: '50vh' }}>
@@ -121,6 +208,18 @@ const App = () => {
                       src='/images/scroll-opacity.jpg'
                       alt="the world's most beautiful black cat"
                     />
+                    <pre>
+                      <code>
+                        {`
+                        <MotionAnimate
+                          animation='scrollOpacity'
+                          ease={[0.17, 0.67, 0.97, -0.48]}
+                          opacityPositions={[0, 0.5, 0.6, 1]}>
+                          <div>Define your own scroll opacity trigger positions and easing</div>
+                        </MotionAnimate>
+                      `}
+                      </code>
+                    </pre>
                   </div>
                 </MotionAnimate>
               </div>
@@ -132,16 +231,28 @@ const App = () => {
       <footer>
         <div className='inner'>
           Brought to you by the team at{' '}
-          <a href='https://useallfive.com/' target='_blank'>
+          <a
+            href='https://useallfive.com/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             Use All Five
           </a>
           <br />
           Built by:{' '}
-          <a href='https://github.com/suhmantha1' target='_blank'>
+          <a
+            href='https://github.com/suhmantha1'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             Samantha Combs
           </a>{' '}
           +{' '}
-          <a href='https://github.com/supryan' target='_blank'>
+          <a
+            href='https://github.com/supryan'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             Ryan Gordon
           </a>
         </div>

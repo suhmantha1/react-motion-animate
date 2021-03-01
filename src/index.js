@@ -11,7 +11,7 @@ export const MotionAnimate = ({
   variant,
   speed = transition.duration,
   delay = transition.delay,
-  distance,
+  distance = transition.distance,
   ease = transition.ease,
   reset = false,
   threshold = 0,
@@ -19,8 +19,7 @@ export const MotionAnimate = ({
 }) => {
   const [inView, setInView] = useState(false)
 
-  const isRevealAnimation =
-    ['fade', 'fadeInUp', 'fadeInDown'].includes(animation) || variant
+  const isRevealAnimation = ['fade', 'fadeInUp'].includes(animation) || variant
 
   return (
     <IntersectionObserver
@@ -52,12 +51,7 @@ export const MotionAnimate = ({
 
 MotionAnimate.propTypes = {
   children: PropTypes.node,
-  animation: PropTypes.oneOf([
-    'fade',
-    'fadeInUp',
-    'fadeInDown',
-    'scrollOpacity'
-  ]),
+  animation: PropTypes.oneOf(['fade', 'fadeInUp', 'scrollOpacity']),
   variant: PropTypes.shape({
     hidden: PropTypes.object,
     show: PropTypes.object

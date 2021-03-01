@@ -37,8 +37,8 @@ class Example extends Component {
 
 #### `<MotionAnimate>`
 
-- `animation`: `fade` (default), `fadeInUp`, `fadeInDown`, `scrollOpacity`
-- `variant`: custom animation definition (see built-in `animation` options above). See [framer docs](https://www.framer.com/api/motion/types/) for variant options. See example for `fadeInDown` variant:
+- `animation`: `fade` (default), `fadeInUp`, `scrollOpacity`
+- `variant`: custom animation definition (see built-in `animation` options above). See [framer docs](https://www.framer.com/api/motion/types/) for variant options. See example for `fadeInUp` variant:
 
 ```jsx
 const fadeInUp = {

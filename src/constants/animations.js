@@ -25,19 +25,7 @@ const fadeInUp = {
   }
 }
 
-const fadeInDown = {
-  hidden: {
-    opacity: 0,
-    y: -`${transition.distance}`
-  },
-  show: {
-    opacity: 1,
-    y: 0
-  }
-}
-
 export default {
   fade,
-  fadeInUp,
-  fadeInDown
+  fadeInUp
 }

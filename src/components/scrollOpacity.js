@@ -23,7 +23,7 @@ export const ScrollOpacity = ({
       const bottomEntersWindowPosition =
         topEntersWindowPosition + $ref.offsetHeight
 
-      // Start fading in when top of element is 10% above the viewport
+      // Start fading in when top of element is above the viewport
       setStartPosition(
         topEntersWindowPosition + window.innerHeight * opacityPositions[0]
       )

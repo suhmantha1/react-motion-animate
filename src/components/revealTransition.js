@@ -36,7 +36,7 @@ export const RevealTransition = ({
 
 RevealTransition.propTypes = {
   children: PropTypes.node,
-  animation: PropTypes.oneOf(['fade', 'fadeInUp', 'fadeInDown']),
+  animation: PropTypes.oneOf(['fade', 'fadeInUp']),
   inView: PropTypes.bool,
   variant: PropTypes.shape({
     hidden: PropTypes.object,
