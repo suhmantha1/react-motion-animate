@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { motion } from 'framer-motion'
 import { IntersectionObserver } from './utils/intersection-observer'
 import { transition } from './constants/animations'
-import { getAnimation } from './utils/animation'
+import { RevealTransition } from './components/RevealTransition'
+import { ScrollOpacity } from './components/scrollOpacity'
 
 export const MotionAnimate = ({
   children,
@@ -18,7 +18,8 @@ export const MotionAnimate = ({
 }) => {
   const [inView, setInView] = useState(false)
 
-  const animationVariants = getAnimation({ animation, variant, distance })
+  const isRevealAnimation =
+    ['fade', 'fadeInUp', 'fadeInDown'].includes(animation) || variant
 
   return (
     <IntersectionObserver
@@ -26,27 +27,34 @@ export const MotionAnimate = ({
       reset={reset}
       threshold={threshold}
     >
-      <motion.div
-        initial='hidden'
-        animate={inView ? 'show' : 'hidden'}
-        exit='hidden'
-        variants={animationVariants}
-        transition={{
-          ...transition,
-          duration: speed,
-          delay: delay,
-          ease: ease
-        }}
-      >
-        {children}
-      </motion.div>
+      {animation === 'scrollOpacity' && (
+        <ScrollOpacity ease={ease}>{children}</ScrollOpacity>
+      )}
+      {isRevealAnimation && (
+        <RevealTransition
+          inView={inView}
+          animation={animation}
+          variant={variant}
+          speed={speed}
+          delay={delay}
+          distance={distance}
+          ease={ease}
+        >
+          {children}
+        </RevealTransition>
+      )}
     </IntersectionObserver>
   )
 }
 
 MotionAnimate.propTypes = {
   children: PropTypes.node,
-  animation: PropTypes.oneOf(['fade', 'fadeInUp', 'fadeInDown']),
+  animation: PropTypes.oneOf([
+    'fade',
+    'fadeInUp',
+    'fadeInDown',
+    'scrollOpacity'
+  ]),
   variant: PropTypes.shape({
     hidden: PropTypes.object,
     show: PropTypes.object

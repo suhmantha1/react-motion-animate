@@ -85,9 +85,18 @@ main {
   margin-top: 200px;
 }
 
+.scroll-block {
+  padding: 45vh 0;
+}
+
+img {
+  max-width: 100%;
+}
+
 /* FOOTER */
 footer {
   font-weight: 300;
   font-size: 28px;
+  line-height: 1.6;
   padding: 80px 0;
 }

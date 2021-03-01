@@ -25,7 +25,7 @@ const App = () => {
 
       <MotionAnimate animation='fadeInUp' delay={1}>
         <main>
-          <div class='inner'>
+          <div className='inner'>
             <div className='block'>
               <MotionAnimate threshold={1} reset={true}>
                 <>Just a simple fade</>
@@ -99,23 +99,45 @@ const App = () => {
               </div>
             </div>
           </div>
+
+          <div className='scroll-block' style={{ background: '#57716F' }}>
+            <div className='inner'>
+              <MotionAnimate animation='scrollOpacity'>
+                <>Fade in and out on scroll</>
+              </MotionAnimate>
+
+              <div style={{ padding: '50vh 0' }}>
+                <MotionAnimate
+                  animation='scrollOpacity'
+                  ease={[0.17, 0.67, 0.97, -0.48]}
+                >
+                  <>
+                    <img
+                      src='/images/scroll-opacity.jpg'
+                      alt="the world's most beautiful black cat"
+                    />
+                  </>
+                </MotionAnimate>
+              </div>
+            </div>
+          </div>
         </main>
       </MotionAnimate>
 
       <footer>
-        <div class='inner'>
+        <div className='inner'>
           Brought to you by the team at{' '}
           <a href='https://useallfive.com/' target='_blank'>
             Use All Five
           </a>
           <br />
           Built by:{' '}
-          <a href='https://github.com/supryan' target='_blank'>
-            Ryan Gordon
-          </a>{' '}
-          +{' '}
           <a href='https://github.com/suhmantha1' target='_blank'>
             Samantha Combs
+          </a>{' '}
+          +{' '}
+          <a href='https://github.com/supryan' target='_blank'>
+            Ryan Gordon
           </a>
         </div>
       </footer>

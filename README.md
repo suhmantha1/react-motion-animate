@@ -64,5 +64,5 @@ const fadeInUp = {
 MIT © [Use All Five](https://github.com/useallfive)
 
 Developers:
-[Ryan Gordon](https://github.com/supryan)
 [Samantha Combs](https://github.com/suhmantha1)
+[Ryan Gordon](https://github.com/supryan)

@@ -1,6 +1,6 @@
 {
   "name": "react-motion-animate",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Animate react components as they scroll in and out of view",
   "keywords": [
     "react animation",
