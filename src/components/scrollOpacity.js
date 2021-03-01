@@ -2,7 +2,11 @@ import React, { useRef, useState, useEffect } from 'react'
 import { useViewportScroll, useTransform, motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 
-export const ScrollOpacity = ({ children, yOffset = 0, ease }) => {
+export const ScrollOpacity = ({
+  children,
+  opacityPositions = [0, 0.4, 0.6, 1],
+  ease
+}) => {
   const { scrollY } = useViewportScroll()
   const ref = useRef()
   const [startPosition, setStartPosition] = useState(0)
@@ -16,28 +20,34 @@ export const ScrollOpacity = ({ children, yOffset = 0, ease }) => {
     const setValues = () => {
       const $ref = ref.current
       const topEntersWindowPosition = $ref.offsetTop - window.innerHeight / 2
+      const bottomEntersWindowPosition =
+        topEntersWindowPosition + $ref.offsetHeight
 
       // Start fading in when top of element is 10% above the viewport
-      setStartPosition(topEntersWindowPosition + window.innerHeight * 0.1)
-
-      // Totally visible from element top 25% above fold – bottom 10% from window top
-      setVisibleStartPosition(
-        topEntersWindowPosition + window.innerHeight * 0.25
+      setStartPosition(
+        topEntersWindowPosition + window.innerHeight * opacityPositions[0]
       )
-      setVisibleEndPosition(topEntersWindowPosition + window.innerHeight * 0.75)
+
+      // Totally visible from element top 40% above fold – bottom 60% from window top
+      setVisibleStartPosition(
+        topEntersWindowPosition + window.innerHeight * opacityPositions[1]
+      )
+      setVisibleEndPosition(
+        bottomEntersWindowPosition + window.innerHeight * opacityPositions[2]
+      )
 
       // Fade out again when element bottom reaches 10% from window top
       setEndPosition(
-        topEntersWindowPosition + $ref.offsetHeight + window.innerHeight * 0.9
+        bottomEntersWindowPosition + window.innerHeight * opacityPositions[3]
       )
     }
 
     setValues()
-    document.addEventListener('load', setValues)
+    window.addEventListener('load', setValues)
     window.addEventListener('resize', setValues)
 
     return () => {
-      document.removeEventListener('load', setValues)
+      window.removeEventListener('load', setValues)
       window.removeEventListener('resize', setValues)
     }
   }, [ref])
@@ -48,12 +58,6 @@ export const ScrollOpacity = ({ children, yOffset = 0, ease }) => {
     [0, 1, 1, 0],
     ease
   )
-  console.log([
-    startPosition,
-    visibleStartPosition,
-    visibleEndPosition,
-    endPosition
-  ])
 
   return (
     <motion.div ref={ref} initial={{ opacity: 0 }} style={{ opacity }}>
@@ -64,7 +68,7 @@ export const ScrollOpacity = ({ children, yOffset = 0, ease }) => {
 
 ScrollOpacity.propTypes = {
   children: PropTypes.node,
-  yOffset: PropTypes.number,
+  opacityPositions: PropTypes.arrayOf(PropTypes.number),
   ease: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.number)

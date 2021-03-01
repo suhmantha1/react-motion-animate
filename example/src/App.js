@@ -106,17 +106,22 @@ const App = () => {
                 <>Fade in and out on scroll</>
               </MotionAnimate>
 
-              <div style={{ padding: '50vh 0' }}>
+              <div style={{ paddingTop: '50vh' }}>
                 <MotionAnimate
                   animation='scrollOpacity'
                   ease={[0.17, 0.67, 0.97, -0.48]}
+                  opacityPositions={[0, 0.5, 0.6, 1]}
                 >
-                  <>
+                  <div>
+                    <div style={{ textAlign: 'center', paddingBottom: '40px' }}>
+                      Define your own scroll opacity trigger positions and
+                      easing
+                    </div>
                     <img
                       src='/images/scroll-opacity.jpg'
                       alt="the world's most beautiful black cat"
                     />
-                  </>
+                  </div>
                 </MotionAnimate>
               </div>
             </div>

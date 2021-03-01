@@ -14,7 +14,8 @@ export const MotionAnimate = ({
   distance,
   ease = transition.ease,
   reset = false,
-  threshold = 0
+  threshold = 0,
+  opacityPositions
 }) => {
   const [inView, setInView] = useState(false)
 
@@ -28,7 +29,9 @@ export const MotionAnimate = ({
       threshold={threshold}
     >
       {animation === 'scrollOpacity' && (
-        <ScrollOpacity ease={ease}>{children}</ScrollOpacity>
+        <ScrollOpacity ease={ease} opacityPositions={opacityPositions}>
+          {children}
+        </ScrollOpacity>
       )}
       {isRevealAnimation && (
         <RevealTransition
