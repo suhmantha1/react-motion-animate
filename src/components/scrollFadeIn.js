@@ -1,19 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useViewportScroll, useTransform, motion } from 'framer-motion'
 import PropTypes from 'prop-types'
-import { getFullScrollPos } from '../utils/scroll'
+import { getStartScrollPos } from '../utils/scroll'
 
-export const ScrollOpacity = ({
+export const ScrollFadeIn = ({
   children,
-  opacityPositions = [0, 0.4, 0.6, 1],
+  opacityPositions = [0, 0.4],
   ease
 }) => {
   const { scrollY } = useViewportScroll()
   const ref = useRef()
   const [startPosition, setStartPosition] = useState(0)
-  const [visibleStartPosition, setVisibleStartPosition] = useState(0)
-  const [visibleEndPosition, setVisibleEndPosition] = useState(0)
-  const [endPosition, setEndPosition] = useState(0)
+  const [visiblePosition, setVisiblePosition] = useState(0)
 
   useEffect(() => {
     if (!ref.current) return
@@ -22,17 +20,14 @@ export const ScrollOpacity = ({
       const $ref = ref.current
 
       // Get animation positions
-      const positions = getFullScrollPos({
+      const positions = getStartScrollPos({
         $ref,
         startPercentile: opacityPositions[0],
-        startFullPercentile: opacityPositions[1],
-        endFullPercentile: opacityPositions[2],
-        endPercentile: opacityPositions[3]
+        endPercentile: opacityPositions[1]
       })
+
       setStartPosition(positions.startPos)
-      setVisibleStartPosition(positions.startFullPos)
-      setVisibleEndPosition(positions.endFullPos)
-      setEndPosition(positions.endPos)
+      setVisiblePosition(positions.endPos)
     }
 
     setValues()
@@ -47,19 +42,19 @@ export const ScrollOpacity = ({
 
   const opacity = useTransform(
     scrollY,
-    [startPosition, visibleStartPosition, visibleEndPosition, endPosition],
-    [0, 1, 1, 0],
+    [startPosition, visiblePosition],
+    [0, 1],
     ease
   )
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0 }} style={{ opacity }}>
+    <motion.div ref={ref} style={{ opacity }}>
       {children}
     </motion.div>
   )
 }
 
-ScrollOpacity.propTypes = {
+ScrollFadeIn.propTypes = {
   children: PropTypes.node,
   opacityPositions: PropTypes.arrayOf(PropTypes.number),
   ease: PropTypes.oneOfType([

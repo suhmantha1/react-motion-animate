@@ -4,6 +4,7 @@ import { IntersectionObserver } from './utils/intersection-observer'
 import { transition } from './constants/animations'
 import { RevealTransition } from './components/RevealTransition'
 import { ScrollOpacity } from './components/scrollOpacity'
+import { ScrollFadeIn } from './components/scrollFadeIn'
 
 export const MotionAnimate = ({
   children,
@@ -32,6 +33,11 @@ export const MotionAnimate = ({
           {children}
         </ScrollOpacity>
       )}
+      {animation === 'scrollFadeIn' && (
+        <ScrollFadeIn ease={ease} opacityPositions={opacityPositions}>
+          {children}
+        </ScrollFadeIn>
+      )}
       {isRevealAnimation && (
         <RevealTransition
           inView={inView}
@@ -51,7 +57,12 @@ export const MotionAnimate = ({
 
 MotionAnimate.propTypes = {
   children: PropTypes.node,
-  animation: PropTypes.oneOf(['fade', 'fadeInUp', 'scrollOpacity']),
+  animation: PropTypes.oneOf([
+    'fade',
+    'fadeInUp',
+    'scrollOpacity',
+    'scrollFadeIn'
+  ]),
   variant: PropTypes.shape({
     hidden: PropTypes.object,
     show: PropTypes.object

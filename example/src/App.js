@@ -225,6 +225,43 @@ const App = () => {
               </div>
             </div>
           </div>
+
+          <div className='scroll-block' style={{ background: '#EBDDA3' }}>
+            <div className='inner'>
+              <MotionAnimate animation='scrollFadeIn'>
+                <div>Fade In (only) With Scroll</div>
+
+                <pre>
+                  <code>
+                    {`
+                      <MotionAnimate animation='scrollFadeIn'>
+                        <div>Fade In (only) With Scroll</div>
+                      </MotionAnimate>
+                    `}
+                  </code>
+                </pre>
+              </MotionAnimate>
+
+              <MotionAnimate
+                animation='scrollFadeIn'
+                opacityPositions={[0.1, 0.9]}
+              >
+                <div class='right' style={{ marginTop: '50vh' }}>
+                  Fade in slow...
+                </div>
+
+                <pre>
+                  <code>
+                    {`
+                      <MotionAnimate animation='scrollFadeIn' opacityPositions={[0.1, 0.9]}>
+                        <div>Fade in slow...</div>
+                      </MotionAnimate>
+                    `}
+                  </code>
+                </pre>
+              </MotionAnimate>
+            </div>
+          </div>
         </main>
       </MotionAnimate>
 
