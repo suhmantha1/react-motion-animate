@@ -205,7 +205,7 @@ const App = () => {
                       easing
                     </div>
                     <img
-                      src='/images/scroll-opacity.jpg'
+                      src='images/scroll-opacity.jpg'
                       alt="the world's most beautiful black cat"
                     />
                     <pre>
