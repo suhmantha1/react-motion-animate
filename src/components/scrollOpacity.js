@@ -19,7 +19,13 @@ export const ScrollOpacity = ({
 
     const setValues = () => {
       const $ref = ref.current
-      const topEntersWindowPosition = $ref.offsetTop - window.innerHeight / 2
+
+      // const topEntersWindowPosition = $ref.offsetTop - window.innerHeight / 2
+      const topEntersWindowPosition =
+        window.pageYOffset +
+        $ref.getBoundingClientRect().top -
+        window.innerHeight
+
       const bottomEntersWindowPosition =
         topEntersWindowPosition + $ref.offsetHeight
 
