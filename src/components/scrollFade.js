@@ -3,9 +3,10 @@ import { useViewportScroll, useTransform, motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import { getStartScrollPos } from '../utils/scroll'
 
-export const ScrollFadeIn = ({
+export const ScrollFade = ({
   children,
   scrollPositions = [0, 0.4],
+  isFadeIn = true,
   ease
 }) => {
   const { scrollY } = useViewportScroll()
@@ -43,7 +44,7 @@ export const ScrollFadeIn = ({
   const opacity = useTransform(
     scrollY,
     [startPosition, visiblePosition],
-    [0, 1],
+    isFadeIn ? [0, 1] : [1, 0],
     ease
   )
 
@@ -54,7 +55,7 @@ export const ScrollFadeIn = ({
   )
 }
 
-ScrollFadeIn.propTypes = {
+ScrollFade.propTypes = {
   children: PropTypes.node,
   scrollPositions: PropTypes.arrayOf(PropTypes.number),
   ease: PropTypes.oneOfType([

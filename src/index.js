@@ -4,7 +4,7 @@ import { IntersectionObserver } from './utils/intersection-observer'
 import { transition } from './constants/animations'
 import { RevealTransition } from './components/RevealTransition'
 import { ScrollOpacity } from './components/scrollOpacity'
-import { ScrollFadeIn } from './components/scrollFadeIn'
+import { ScrollFade } from './components/scrollFade'
 import { ScrollPosition } from './components/scrollPosition'
 
 export const MotionAnimate = ({
@@ -37,9 +37,18 @@ export const MotionAnimate = ({
         </ScrollOpacity>
       )}
       {animation === 'scrollFadeIn' && (
-        <ScrollFadeIn ease={ease} scrollPositions={scrollPositions}>
+        <ScrollFade ease={ease} scrollPositions={scrollPositions}>
           {children}
-        </ScrollFadeIn>
+        </ScrollFade>
+      )}
+      {animation === 'scrollFadeOut' && (
+        <ScrollFade
+          ease={ease}
+          isFadeIn={false}
+          scrollPositions={scrollPositions || [0.7, 1]}
+        >
+          {children}
+        </ScrollFade>
       )}
       {animation === 'scrollPosition' && (
         <ScrollPosition
@@ -75,6 +84,7 @@ MotionAnimate.propTypes = {
     'fadeInUp',
     'scrollOpacity',
     'scrollFadeIn',
+    'scrollFadeOut',
     'scrollPosition'
   ]),
   variant: PropTypes.shape({

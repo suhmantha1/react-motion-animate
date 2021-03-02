@@ -260,6 +260,22 @@ const App = () => {
                   </code>
                 </pre>
               </MotionAnimate>
+
+              <MotionAnimate animation='scrollFadeOut'>
+                <div className='center' style={{ marginTop: '50vh' }}>
+                  Or just fade out instead
+                </div>
+
+                <pre>
+                  <code>
+                    {`
+                      <MotionAnimate animation='scrollFadeOut'>
+                        <div>Or just fade out instead</div>
+                      </MotionAnimate>
+                    `}
+                  </code>
+                </pre>
+              </MotionAnimate>
             </div>
           </div>
 
@@ -285,7 +301,7 @@ const App = () => {
             <div style={{ marginTop: '50vh', border: '1px solid pink' }}>
               <MotionAnimate
                 animation='scrollPosition'
-                scrollPositions={[0.4, 0.8]}
+                scrollPositions={[0.3, 0.6]}
                 xPos={[200, 800]}
                 yPos={[0, -200]}
               >

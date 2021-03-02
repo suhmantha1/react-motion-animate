@@ -37,7 +37,7 @@ class Example extends Component {
 
 #### `<MotionAnimate>`
 
-- `animation`: `fade` (default), `fadeInUp`, `scrollOpacity`, `scrollFadeIn`
+- `animation`: `fade` (default), `fadeInUp`, `scrollOpacity`, `scrollFadeIn`, `scrollFadeOut`, `scrollPosition`
 - `variant`: custom animation definition (see built-in `animation` options above). See [framer docs](https://www.framer.com/api/motion/types/) for variant options. See example for `fadeInUp` variant:
 
 ```jsx
@@ -58,7 +58,12 @@ const fadeInUp = {
 - `ease`: transition ease. Default `easeInOut`. See [framer docs](https://www.framer.com/api/animation/#tween.ease) for ease options
 - `reset`: reset the transition after the component exits from view. Default: `false`
 - `threshold`: amount of component that is visible in the viewport before the transition fires. Default: `0`. Accepts values from 0 to 1.0 (with 1.0 meaning 100% of component is visible)
-- `scrollPositions`: trigger positions for `scrollOpacity` and `scrollFadeIn` animations. Accepts array with percent values (0 - 1) [start fade in, start being fully visible, end being fully visible, end fade out] Default: `[0, 0.4, 0.6, 1]`.
+- `scrollPositions`: trigger positions for scroll-based animations. Accepts array with percent values (0 - 1).
+  - `scrollOpacity`. Accepts exactly 4 values. Default: `[0, 0.4, 0.6, 1]` ([start fade in, start being fully visible, end being fully visible, end fade out])
+  - `scrollFadeIn`. Accepts exactly 2 values. Default: `[0, 0.4]`
+  - `scrollFadeOut`. Accepts exactly 2 values. Default: `[0.7, 1]`
+  - `scrollPosition`. Accepts exactly 2 values. Default: `[0, 1]`
+- `xPos`, `yPos`: start and end positions for `scrollPosition` animation. Both accept array of exactly 2 values. Default: `[0, 0]`
 
 ## License
 
