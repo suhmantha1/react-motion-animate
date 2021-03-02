@@ -197,7 +197,7 @@ const App = () => {
                 <MotionAnimate
                   animation='scrollOpacity'
                   ease={[0.17, 0.67, 0.97, -0.48]}
-                  opacityPositions={[0, 0.5, 0.6, 1]}
+                  scrollPositions={[0.2, 0.5, 0.6, 0.8]}
                 >
                   <div>
                     <div style={{ textAlign: 'center', paddingBottom: '40px' }}>
@@ -214,7 +214,7 @@ const App = () => {
                         <MotionAnimate
                           animation='scrollOpacity'
                           ease={[0.17, 0.67, 0.97, -0.48]}
-                          opacityPositions={[0, 0.5, 0.6, 1]}>
+                          scrollPositions={[0.2, 0.5, 0.6, 0.8]}>
                           <div>Define your own scroll opacity trigger positions and easing</div>
                         </MotionAnimate>
                       `}
@@ -244,17 +244,60 @@ const App = () => {
 
               <MotionAnimate
                 animation='scrollFadeIn'
-                opacityPositions={[0.1, 0.9]}
+                scrollPositions={[0.1, 0.9]}
               >
-                <div class='right' style={{ marginTop: '50vh' }}>
+                <div className='right' style={{ marginTop: '50vh' }}>
                   Fade in slow...
                 </div>
 
                 <pre>
                   <code>
                     {`
-                      <MotionAnimate animation='scrollFadeIn' opacityPositions={[0.1, 0.9]}>
+                      <MotionAnimate animation='scrollFadeIn' scrollPositions={[0.1, 0.9]}>
                         <div>Fade in slow...</div>
+                      </MotionAnimate>
+                    `}
+                  </code>
+                </pre>
+              </MotionAnimate>
+            </div>
+          </div>
+
+          <div className='scroll-block' style={{ backgroundColor: '#839CAD' }}>
+            <div>
+              <MotionAnimate animation='scrollPosition' xPos={[1400, -600]}>
+                <div>
+                  <div>Scroll Position</div>
+
+                  <pre>
+                    <code>
+                      {`
+                      <MotionAnimate animation='scrollPosition' xPos={[1400, -600]}>
+                        <div>Scroll Position</div>
+                      </MotionAnimate>
+                    `}
+                    </code>
+                  </pre>
+                </div>
+              </MotionAnimate>
+            </div>
+
+            <div style={{ marginTop: '50vh', border: '1px solid pink' }}>
+              <MotionAnimate
+                animation='scrollPosition'
+                scrollPositions={[0.4, 0.8]}
+                xPos={[200, 800]}
+                yPos={[0, -200]}
+              >
+                <div>🤾🏼‍♀️</div>
+                <pre>
+                  <code>
+                    {`
+                      <MotionAnimate animation='scrollPosition'
+                        scrollPositions={[0.4, 0.8]}
+                        xPos={[200, 800]}
+                        yPos={[0, -200]}>
+                        <div>Scroll Position</div>
                       </MotionAnimate>
                     `}
                   </code>

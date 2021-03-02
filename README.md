@@ -58,7 +58,7 @@ const fadeInUp = {
 - `ease`: transition ease. Default `easeInOut`. See [framer docs](https://www.framer.com/api/animation/#tween.ease) for ease options
 - `reset`: reset the transition after the component exits from view. Default: `false`
 - `threshold`: amount of component that is visible in the viewport before the transition fires. Default: `0`. Accepts values from 0 to 1.0 (with 1.0 meaning 100% of component is visible)
-- `opacityPositions`: trigger positions for `scrollOpacity` and `scrollFadeIn` animations. Accepts array with percent values (0 - 1) [start fade in, start being fully visible, end being fully visible, end fade out] Default: `[0, 0.4, 0.6, 1]`.
+- `scrollPositions`: trigger positions for `scrollOpacity` and `scrollFadeIn` animations. Accepts array with percent values (0 - 1) [start fade in, start being fully visible, end being fully visible, end fade out] Default: `[0, 0.4, 0.6, 1]`.
 
 ## License
 

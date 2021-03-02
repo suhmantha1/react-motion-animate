@@ -5,6 +5,7 @@ import { transition } from './constants/animations'
 import { RevealTransition } from './components/RevealTransition'
 import { ScrollOpacity } from './components/scrollOpacity'
 import { ScrollFadeIn } from './components/scrollFadeIn'
+import { ScrollPosition } from './components/scrollPosition'
 
 export const MotionAnimate = ({
   children,
@@ -16,7 +17,9 @@ export const MotionAnimate = ({
   ease = transition.ease,
   reset = false,
   threshold = 0,
-  opacityPositions
+  scrollPositions,
+  xPos,
+  yPos
 }) => {
   const [inView, setInView] = useState(false)
 
@@ -29,14 +32,24 @@ export const MotionAnimate = ({
       threshold={threshold}
     >
       {animation === 'scrollOpacity' && (
-        <ScrollOpacity ease={ease} opacityPositions={opacityPositions}>
+        <ScrollOpacity ease={ease} scrollPositions={scrollPositions}>
           {children}
         </ScrollOpacity>
       )}
       {animation === 'scrollFadeIn' && (
-        <ScrollFadeIn ease={ease} opacityPositions={opacityPositions}>
+        <ScrollFadeIn ease={ease} scrollPositions={scrollPositions}>
           {children}
         </ScrollFadeIn>
+      )}
+      {animation === 'scrollPosition' && (
+        <ScrollPosition
+          ease={ease}
+          scrollPositions={scrollPositions}
+          xPos={xPos}
+          yPos={yPos}
+        >
+          {children}
+        </ScrollPosition>
       )}
       {isRevealAnimation && (
         <RevealTransition
@@ -61,7 +74,8 @@ MotionAnimate.propTypes = {
     'fade',
     'fadeInUp',
     'scrollOpacity',
-    'scrollFadeIn'
+    'scrollFadeIn',
+    'scrollPosition'
   ]),
   variant: PropTypes.shape({
     hidden: PropTypes.object,

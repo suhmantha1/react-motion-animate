@@ -11,7 +11,7 @@ const getBottomScrollDistance = ({ $ref, topPos }) => {
   // Distance when bottom of $ref enters the viewport
   if (!window || !$ref) return 0
 
-  return topPos || getTopScrollDistance({ $ref }) + $ref.offsetHeight
+  return (topPos || getTopScrollDistance({ $ref })) + $ref.offsetHeight
 }
 
 export const getStartScrollPos = ({ $ref, startPercentile, endPercentile }) => {
@@ -21,9 +21,9 @@ export const getStartScrollPos = ({ $ref, startPercentile, endPercentile }) => {
 
   const topPos = getTopScrollDistance({ $ref }) // Position when $ref enters the viewport
   positions.topPos = topPos
-
-  positions.startPos = topPos + window.innerHeight * startPercentile // Start the animation
-  positions.endPos = topPos + window.innerHeight * endPercentile // Complete the animation
+  const winHeight = window.innerHeight
+  positions.startPos = topPos + winHeight * startPercentile // Start the animation
+  positions.endPos = topPos + winHeight * endPercentile // Complete the animation
 
   return positions
 }
@@ -39,8 +39,9 @@ export const getEndScrollPos = ({
   if (!window || !$ref) return positions
 
   const bottomPos = getBottomScrollDistance({ $ref, topPos }) // Position when $ref bottom enters the viewport
-  positions.startPos = bottomPos + window.innerHeight * startPercentile // Start the animation
-  positions.endPos = bottomPos + window.innerHeight * endPercentile // Complete the animation
+  const winHeight = window.innerHeight
+  positions.startPos = bottomPos + winHeight * startPercentile // Start the animation
+  positions.endPos = bottomPos + winHeight * endPercentile // Complete the animation
 
   return positions
 }
@@ -61,6 +62,7 @@ export const getFullScrollPos = ({
     startPercentile,
     endPercentile: startFullPercentile
   })
+
   const bottomPositions = getEndScrollPos({
     $ref,
     topPos: topPositions.topPos,

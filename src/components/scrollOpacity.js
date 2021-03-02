@@ -5,7 +5,7 @@ import { getFullScrollPos } from '../utils/scroll'
 
 export const ScrollOpacity = ({
   children,
-  opacityPositions = [0, 0.4, 0.6, 1],
+  scrollPositions = [0, 0.4, 0.6, 1],
   ease
 }) => {
   const { scrollY } = useViewportScroll()
@@ -24,10 +24,10 @@ export const ScrollOpacity = ({
       // Get animation positions
       const positions = getFullScrollPos({
         $ref,
-        startPercentile: opacityPositions[0],
-        startFullPercentile: opacityPositions[1],
-        endFullPercentile: opacityPositions[2],
-        endPercentile: opacityPositions[3]
+        startPercentile: scrollPositions[0],
+        startFullPercentile: scrollPositions[1],
+        endFullPercentile: scrollPositions[2],
+        endPercentile: scrollPositions[3]
       })
       setStartPosition(positions.startPos)
       setVisibleStartPosition(positions.startFullPos)
@@ -53,7 +53,7 @@ export const ScrollOpacity = ({
   )
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0 }} style={{ opacity }}>
+    <motion.div ref={ref} style={{ opacity }}>
       {children}
     </motion.div>
   )
@@ -61,7 +61,7 @@ export const ScrollOpacity = ({
 
 ScrollOpacity.propTypes = {
   children: PropTypes.node,
-  opacityPositions: PropTypes.arrayOf(PropTypes.number),
+  scrollPositions: PropTypes.arrayOf(PropTypes.number),
   ease: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.arrayOf(PropTypes.number)
