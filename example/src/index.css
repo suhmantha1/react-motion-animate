@@ -89,6 +89,11 @@ main {
 .scroll-block {
   padding: 45vh 0;
 }
+@media (max-width: 768px) {
+  .scroll-block {
+    padding: 35vh 0;
+  }
+}
 
 img,
 svg {
