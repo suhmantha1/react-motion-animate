@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useViewportScroll, useTransform, motion } from 'framer-motion'
+import { useScroll, useTransform, motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import { getStartScrollPos } from '../utils/scroll'
 
@@ -10,7 +10,7 @@ export const ScrollPosition = ({
   yPos = [0, 0],
   ease
 }) => {
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const ref = useRef()
   const [startPosition, setStartPosition] = useState(0)
   const [endPosition, setEndPosition] = useState(0)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { MotionAnimate } from 'react-motion-animate'
-import 'react-motion-animate/dist/index.css'
+import './index.css'
 
 const App = () => {
   return (

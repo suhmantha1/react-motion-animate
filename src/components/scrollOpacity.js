@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { useViewportScroll, useTransform, motion } from 'framer-motion'
+import { useScroll, useTransform, motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import { getFullScrollPos } from '../utils/scroll'
 
@@ -8,7 +8,7 @@ export const ScrollOpacity = ({
   scrollPositions = [0, 0.4, 0.6, 1],
   ease
 }) => {
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const ref = useRef()
   const [startPosition, setStartPosition] = useState(0)
   const [visibleStartPosition, setVisibleStartPosition] = useState(0)
